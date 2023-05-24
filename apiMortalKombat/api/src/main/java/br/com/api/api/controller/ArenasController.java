@@ -35,7 +35,7 @@ public class ArenasController {
         } catch (IllegalArgumentException iae) {
             return new ResponseEntity<>(iae.getMessage(), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-            return new ResponseEntity<>("Houve um erro inesperado em nosso sistema, tente novamente mais tarde!!!",
+            return new ResponseEntity<>("Houve um erro inesperado em nosso sistema, tente novamente mais tarde!",
                     HttpStatus.INTERNAL_SERVER_ERROR);
             // Gerar um log contendo o e.getMessage()
         }
@@ -52,7 +52,7 @@ public class ArenasController {
         } catch (IllegalArgumentException iae) {
             return new ResponseEntity<>(iae.getMessage(), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-            return new ResponseEntity<>("Houve um erro inesperado em nosso sistema, tente novamente mais tarde!!!",
+            return new ResponseEntity<>("Houve um erro inesperado em nosso sistema, tente novamente mais tarde!!",
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

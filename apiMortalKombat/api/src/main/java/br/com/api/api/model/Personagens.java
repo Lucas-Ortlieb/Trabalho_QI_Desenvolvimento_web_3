@@ -2,6 +2,7 @@ package br.com.api.api.model;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,14 +32,13 @@ public class Personagens {
     @Column(nullable = false, length = 30)
     private String arma;
 
-    
-    @ManyToMany
+    @ManyToMany (cascade = CascadeType.PERSIST)
     @JoinTable(
         name = "personagens_arenas",
-        joinColumns = @JoinColumn(name = "arenas_id"),
-        inverseJoinColumns = @JoinColumn(name = "personagens_id")
+        joinColumns = @JoinColumn(name = "personagens_id"),
+        inverseJoinColumns = @JoinColumn(name = "arenas_id")
     )
-    public List<Arenas> arenas;
+    private List<Arenas> arenas;
     
 
     public Short getId() {
@@ -83,12 +83,12 @@ public class Personagens {
     public void setArma(String arma) {
         this.arma = arma;
     }
-    /*
+    
     public List<Arenas> getArenas() {
         return arenas;
     }
     public void setArenas(List<Arenas> arenas) {
         this.arenas = arenas;
     }
-    */
+    
 }

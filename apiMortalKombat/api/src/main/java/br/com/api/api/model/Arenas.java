@@ -2,6 +2,8 @@ package br.com.api.api.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +28,7 @@ public class Arenas {
     private String aparicoes;
 
     @ManyToMany(mappedBy = "arenas")
+    @JsonIgnore
     public List<Personagens> personagens;
 
     public Short getId() {
@@ -58,12 +61,12 @@ public class Arenas {
     public void setAparicoes(String aparicoes) {
         this.aparicoes = aparicoes;
     }
-    /*
+    
     public List<Personagens> getPersonagens() {
         return personagens;
     }
     public void setPersonagens(List<Personagens> personagens) {
         this.personagens = personagens;
     }
-    */
+    
 }
